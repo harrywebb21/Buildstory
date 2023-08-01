@@ -2,35 +2,49 @@
 	import { getColors } from '$lib/actions.js';
 	import { blendTarget } from '$lib/utils.js';
 	import uploadImg from '$lib/assets/upload.svg';
-	import ImageUpload from '../ImageUpload.svelte';
 	export let coverImg = '';
-	let placeholder =
+	export let placeholder =
 		'https://s3-alpha-sig.figma.com/img/d591/3104/b315483a4512abb8ec7bb6d090f99098?Expires=1691366400&Signature=S8W1apOUzL-1EIoMuc4Tl6u4uFHdw9IQu5vceBOj1NM3DULjDC29NM0SX0OqNv0mrUNDrDOBCvVcloSOcjylUFh~iJ78cnxj0L4p8xYhuE-WhsQ745jzc7SrO0Su2uhQvnzxJPV6xO7m34ZctOAdZYIWLDTy0B3ElAQi~ejw2JkmzCAZ9pXt-z1NkRJPGnV5~FbKaU8JIESevKlGo0IdU0vDTNo09Er8BufqO3iTaj9rvMng7wW2UmlmXpfNsJ7IktrTUyNzUmy3OjleVlqr6fg0XmAeAWjlIFid5zwX5~si0aL7Il8M~WDJH4eTI36w-YTGC0YB49vP~N8E2Lk9FA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
-	export let test;
+	export let glow;
 	let img;
 </script>
 
 <div class="wrapper">
-	<div class="glow" bind:this={test} />
+	{#if coverImg}
+		<div class="glow" bind:this={glow} />
+	{:else}
+		<div class="glow-ph" bind:this={glow} />
+	{/if}
 	<div class="container">
-		<img
-			class="coverImgPlaceholder"
-			use:getColors={(colors) => blendTarget(colors, test)}
-			src={placeholder}
-			bind:this={img}
-			alt=""
-			crossorigin="anonymous"
-		/>
-		<ImageUpload />
-		<img class="uploadIcon" src={uploadImg} alt="upload icon" />
+		{#if coverImg}
+			<img
+				class=""
+				use:getColors={(colors) => blendTarget(colors, glow)}
+				src={coverImg}
+				bind:this={img}
+				alt=""
+				crossorigin="anonymous"
+			/>
+		{:else}
+			<img
+				class="coverImgPlaceholder"
+				use:getColors={(colors) => blendTarget(colors, glow)}
+				src={placeholder}
+				bind:this={img}
+				alt=""
+				crossorigin="anonymous"
+			/>
+			<img class="uploadIcon" src={uploadImg} alt="upload icon" />
+		{/if}
 	</div>
 </div>
 
-<!-- <div class="wrapper">
-	<div class="glow" bind:this={test} />
+<!-- 
+<div class="wrapper">
+	<div class="glow" bind:this={glow} />
 	<div class="container">
 		<img
-			use:getColors={(colors) => blendTarget(colors, test)}
+			use:getColors={(colors) => blendTarget(colors, glow)}
 			src={coverImg}
 			bind:this={img}
 			alt=""
@@ -40,16 +54,6 @@
 </div> -->
 
 <style>
-	.upload {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		cursor: pointer;
-		opacity: 0;
-	}
-
 	.container {
 		width: 100%;
 		height: 100%;
@@ -84,9 +88,19 @@
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%) rotate(180deg);
+		filter: blur(100px);
+		opacity: 1;
+	}
+
+	.glow-ph {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%) rotate(180deg);
 		filter: blur(100px) hue-rotate(305deg);
 		opacity: 1;
-		/* animation: glow 5s ease-in-out infinite; */
 	}
 	.wrapper {
 		position: relative;

@@ -1,5 +1,8 @@
 import ColorThief from 'colorthief';
 export async function getColors(node, cb) {
+	// if (node.tagName !== 'img') {
+	// 	throw Error('Must be applied to an image');
+	// }
 	const ct = new ColorThief();
 	let colors;
 

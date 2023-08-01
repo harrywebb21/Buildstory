@@ -7,13 +7,7 @@
 	let size = writable(10);
 </script>
 
-<button
-	on:click
-	on:mousedown={() => size.set(100)}
-	on:mouseup={() => size.set(10)}
-	on:submit
-	{type}
->
+<button on:click on:mousedown={() => size.set(100)} on:mouseup={() => size.set(10)} {type}>
 	<div
 		class="inner h-12 px-5 py-3 bg-gradient-to-b from-green-700 to-green-300 rounded-xl shadow-inner border border-green-700 justify-center items-center gap-2 inline-flex"
 	>

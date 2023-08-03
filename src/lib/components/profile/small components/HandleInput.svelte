@@ -1,10 +1,13 @@
 <script>
+	// @ts-nocheck
+
 	import PuffyBtn from '../../buttons/PuffyBtn.svelte';
 	import { fade, fly } from 'svelte/transition';
 	import ProgressBar from './ProgressBar.svelte';
 	import Progress from '../../Progress.svelte';
 	import Profile from '$lib/components/profile/Profile.svelte';
 	import Nakedbtn from '../../buttons/Nakedbtn.svelte';
+	import { fileInput, files, upload } from '$lib/imageupload';
 	// import { createStepper } from '$lib/bookstory-ui';
 	// const { currentStep, next, prev } = createStepper();
 	let currentStep = 1;
@@ -12,6 +15,8 @@
 	let surname;
 	let handle;
 	let email;
+	let coverImg;
+	let avatarImg;
 	let preview = true;
 	const next = () => (currentStep += 1);
 	const prev = () => (currentStep -= 1);
@@ -31,6 +36,7 @@
 {/if}
 
 <div
+	id="reserveUsernameContainer"
 	class="flex flex-col w-full gap-4 items-center"
 	in:fly={{ duration: 2000, delay: 2000 }}
 	out:blur={{ duration: 1500 }}
@@ -72,7 +78,8 @@
 				</div>
 
 				<PuffyBtn
-					btnText="Reserve"
+					text="Reserve"
+					icon="right"
 					on:click={() => {
 						if (handle) {
 							next();
@@ -98,7 +105,7 @@
 						bind:value={email}
 					/>
 					<PuffyBtn
-						btnText="Next"
+						text="Next"
 						on:click={() => {
 							if (email.trim()) {
 								next();
@@ -124,7 +131,7 @@
 					bind:value={firstName}
 				/>
 				<PuffyBtn
-					btnText="next"
+					text="next"
 					on:click={() => {
 						if (firstName.trim()) {
 							firstName = document.getElementById('nameInput').value;
@@ -158,7 +165,7 @@
 						bind:value={surname}
 					/>
 					<PuffyBtn
-						btnText="Next"
+						text="Next"
 						on:click={() => {
 							if (surname.trim()) {
 								surname = document.getElementById('surnameInput').value;
@@ -170,6 +177,62 @@
 				</div>
 			</div>
 		{:else if currentStep === 5}
+			<div class=" flex flex-col justify-center items-center gap-4">
+				<p class=" text-lg text-slate-200 font-medium leading-7">Upload a profile picture</p>
+				<div
+					class="flex flex-col w-full items-center justify-center sm:flex-row gap-4"
+					in:fly={{ x: 500, duration: 2000, delay: 1000 }}
+					out:blur={{ duration: 1500 }}
+				>
+					<Nakedbtn
+						text="Back"
+						icon="back"
+						on:click={() => {
+							prev();
+							console.log(currentStep);
+						}}
+					/>
+					<PuffyBtn text="Select file" icon="upload" />
+
+					<Nakedbtn
+						text="Next"
+						icon="Next"
+						on:click={() => {
+							next();
+							console.log(currentStep);
+						}}
+					/>
+				</div>
+			</div>
+		{:else if currentStep === 6}
+			<div class=" flex flex-col justify-center items-center gap-4">
+				<p class=" text-lg text-slate-200 font-medium leading-7">Upload a cover picture</p>
+				<div
+					class="flex flex-col w-full items-center justify-center sm:flex-row gap-4"
+					in:fly={{ x: 500, duration: 2000, delay: 1000 }}
+					out:blur={{ duration: 1500 }}
+				>
+					<Nakedbtn
+						text="Back"
+						icon="back"
+						on:click={() => {
+							prev();
+							console.log(currentStep);
+						}}
+					/>
+					<PuffyBtn text="Select file" icon="upload" />
+
+					<Nakedbtn
+						text="Next"
+						icon="Next"
+						on:click={() => {
+							next();
+							console.log(currentStep);
+						}}
+					/>
+				</div>
+			</div>
+		{:else if currentStep === 7}
 			<div
 				class=" flex flex-col w-fit gap-4 items-center justify-center h-12 rounded-lg bg-transparent border-2 border-slate-800"
 				in:fade={{ duration: 2000, delay: 1500 }}
@@ -180,7 +243,7 @@
 	</form>
 </div>
 
-<Profile {preview} {currentStep} {handle} {firstName} {surname} />
+<Profile {preview} {currentStep} {handle} {firstName} {surname} {coverImg} {avatarImg} />
 
 <style>
 </style>

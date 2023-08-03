@@ -28,12 +28,15 @@
 			src="https://s3-alpha-sig.figma.com/img/388a/daeb/bfdc9ebcf014849584b73a3a36df8481?Expires=1691971200&Signature=QIStdY-VCMMLzxmba5qYUMStrVIJvMnQEqqp-QhNwFe4hk8eWS5NK-ifFUH4HkoU9Z2voilnu8yJzJPHSpRNjc~wd5-dn21oGUr836rG3p1nVfm019Fv8qij2Fp7zjBlhlFZuyzRTxJoDPgrqdVNfEBpomYC2ERAEETdT3O6-RhBRd66WgvsKOOd2VI1uGdWRwT-6bZ9EwpyAkJ4TTsHkN8ea4KZ88IHRXP0crJvdL9BD6C2fheidWs81qf8ICpQtUxAqoIcodLpAX2piOLNmP3z3gfSTDrfj1QBOLQRh3ZCFGmvc~id2A9Hk0r8rnGGNKzDPSbLIfHepmKLcebW-w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
 			alt=""
 		/>
+
 		<div class="glow-strip" />
 	</div>
 {/if}
 
 <style>
 	.crown-border {
+		width: 36px;
+		height: 36px;
 		border-radius: 8px;
 		border: 3px solid rgba(30, 41, 59, 1);
 		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
@@ -42,18 +45,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-	}
-
-	@keyframes glowPulse {
-		0% {
-			opacity: 0.5;
-		}
-		50% {
-			opacity: 1;
-		}
-		100% {
-			opacity: 0.5;
-		}
 	}
 
 	.glow-strip {
@@ -74,8 +65,6 @@
 		width: 100%;
 		height: 50%;
 		object-fit: cover;
-		overflow: hidden;
-		position: relative;
 	}
 
 	@keyframes glowTransition {

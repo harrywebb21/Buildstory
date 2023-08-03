@@ -1,19 +1,53 @@
 <script>
+	// @ts-nocheck
+	import ImageUploader from '$lib/components/ImageUploader.svelte';
+	import { fileInput, files, upload } from '$lib/imageupload';
 	import { spring } from 'svelte/motion';
 	import { writable } from 'svelte/store';
-	export let btnText = 'Button';
+	import checkmarkIcon from '$lib/assets/checkmark.svg';
+	import uploadIcon from '$lib/assets/upload.svg';
+	export let text = 'Button';
 	export let type = '';
+	export let icon = '';
 
 	let size = writable(10);
 </script>
 
-<button on:click on:mousedown={() => size.set(100)} on:mouseup={() => size.set(10)} {type}>
-	<div
-		class="inner h-12 px-5 py-3 bg-gradient-to-b from-green-700 to-green-300 rounded-xl shadow-inner border border-green-700 justify-center items-center gap-2 inline-flex"
+{#if icon === 'upload'}
+	<button
+		on:click
+		on:mousedown={() => size.set(100)}
+		on:mouseup={() => size.set(10)}
+		{type}
+		use:fileInput
 	>
-		<div class="text-center text-green-700 text-sm font-bold leading-tight">{btnText}</div>
-	</div>
-</button>
+		<div
+			class="inner h-12 px-5 py-3 bg-gradient-to-b from-green-700 to-green-300 rounded-xl shadow-inner border border-green-700 justify-center items-center gap-2 inline-flex"
+		>
+			<div
+				class="text-center text-green-700 text-sm font-bold leading-tight flex gap-2 items-center justify-center"
+			>
+				<p>{text}</p>
+				<img src={uploadIcon} alt="" />
+			</div>
+		</div>
+	</button>
+{:else}
+	<button on:click on:mousedown={() => size.set(100)} on:mouseup={() => size.set(10)} {type}>
+		<div
+			class="inner h-12 px-5 py-3 bg-gradient-to-b from-green-700 to-green-300 rounded-xl shadow-inner border border-green-700 justify-center items-center gap-2 inline-flex"
+		>
+			<div
+				class="text-center text-green-700 text-sm font-bold leading-tight flex gap-2 items-center justify-center"
+			>
+				<p>{text}</p>
+				{#if icon === 'checkmark'}
+					<img src={uploadIcon} alt="" />
+				{/if}
+			</div>
+		</div>
+	</button>
+{/if}
 
 <style>
 	.inner {

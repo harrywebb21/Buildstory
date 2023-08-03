@@ -2,14 +2,14 @@ import { writable } from 'svelte/store';
 
 export const files = writable({ urls: [], formData: null });
 
-let file;
+let file: any;
 
 files.subscribe((value) => {
 	file = value;
 });
 
 const cloudname = 'dpjqff1dh';
-export const fileInput = (node) => {
+export const fileInput = (node: any) => {
 	const input = document.createElement('input');
 	input.setAttribute('type', 'file');
 	input.setAttribute('accept', 'image/*');
@@ -22,7 +22,7 @@ export const fileInput = (node) => {
 		input.click();
 	}
 
-	function getFiles(e) {
+	function getFiles(e: any) {
 		const inputFiles = e.target.files;
 		const formData = new FormData();
 		formData.append('file', inputFiles);

@@ -2,12 +2,12 @@
 
 <style>
 	.bg-glow {
-		top: -50%;
+		top: 0%;
 		left: 50%;
-		transform: translateX(-50%) translateY(20%);
+		transform: translateX(-50%) translateY(-50%);
 		position: absolute;
-		width: 100%;
-		height: 100vh;
+		width: 60%;
+		height: 95%;
 		border-radius: 50%;
 		background: radial-gradient(
 			circle,
@@ -18,6 +18,6 @@
 		animation: glowColorShift 15s ease-in-out infinite;
 		z-index: -1;
 		filter: blur(100px);
-		opacity: 0.5;
+		opacity: 0.8;
 	}
 </style>

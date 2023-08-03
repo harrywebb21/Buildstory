@@ -1,4 +1,5 @@
 <script>
+	//@ts-nocheck
 	let input;
 
 	const fileInput = (node) => {

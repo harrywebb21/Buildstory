@@ -1,4 +1,6 @@
 <script>
+	// @ts-nocheck
+
 	import { getColors } from '$lib/actions.js';
 	import { blendTarget } from '$lib/utils.js';
 	let glow;

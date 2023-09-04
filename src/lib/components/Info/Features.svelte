@@ -1,5 +1,5 @@
 <script>
-	import InfoSection from './small components/Info/InfoSection.svelte';
+	import InfoSection from './InfoSection.svelte';
 
 	import crowdOrange from '$lib/assets/CrowdOrange.svg';
 	import crowdPink from '$lib/assets/CrowdPink.svg';

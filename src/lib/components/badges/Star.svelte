@@ -24,10 +24,11 @@
 		transform: translate(-50%, -50%);
 		width: 80%;
 		height: 80%;
-		opacity: 0.8;
+		opacity: 0;
 	}
 
-	.stars img {
+	.stars:hover {
+		display: flex;
 		animation: starsFlickering 2.5s linear infinite;
 		filter: blur(3px);
 	}

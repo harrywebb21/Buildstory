@@ -1,20 +1,21 @@
 <script>
 	// @ts-nocheck
 	import ImageUploader from '$lib/components/ImageUploader.svelte';
-	import { fileInput, files, upload } from '$lib/imageupload';
-	import { spring } from 'svelte/motion';
+	import { createImageUploader } from '$lib/imageupload';
+	const { fileInput, upload, fileUrl } = createImageUploader('dpjqff1dh');
 	import { writable } from 'svelte/store';
 	import checkmarkIcon from '$lib/assets/checkmark.svg';
 	import uploadIcon from '$lib/assets/upload.svg';
+	import rightArrowIcon from '$lib/assets/Right Button Green.svg';
 	export let text = 'Button';
 	export let type = '';
 	export let icon = '';
-
 	let size = writable(10);
 </script>
 
 {#if icon === 'upload'}
 	<button
+		class=""
 		on:click
 		on:mousedown={() => size.set(100)}
 		on:mouseup={() => size.set(10)}
@@ -33,18 +34,23 @@
 		</div>
 	</button>
 {:else}
-	<button on:click on:mousedown={() => size.set(100)} on:mouseup={() => size.set(10)} {type}>
+	<button
+		on:click
+		on:mousedown={() => size.set(100)}
+		on:mouseup={() => size.set(10)}
+		{type}
+		class="inner h-12 px-5 py-3 bg-gradient-to-b from-green-700 to-green-300 rounded-xl shadow-inner border border-green-700 justify-center items-center gap-2 inline-flex w-full"
+	>
 		<div
-			class="inner h-12 px-5 py-3 bg-gradient-to-b from-green-700 to-green-300 rounded-xl shadow-inner border border-green-700 justify-center items-center gap-2 inline-flex"
+			class="text-center text-green-700 text-sm font-bold leading-tight flex gap-2 items-center justify-center"
 		>
-			<div
-				class="text-center text-green-700 text-sm font-bold leading-tight flex gap-2 items-center justify-center"
-			>
-				<p>{text}</p>
-				{#if icon === 'checkmark'}
-					<img src={uploadIcon} alt="" />
-				{/if}
-			</div>
+			<p>{text}</p>
+			{#if icon === 'checkmark'}
+				<img src={checkmarkIcon} alt="" />
+			{/if}
+			{#if icon === 'next'}
+				<img src={rightArrowIcon} alt="" />
+			{/if}
 		</div>
 	</button>
 {/if}

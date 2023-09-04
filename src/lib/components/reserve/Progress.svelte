@@ -1,4 +1,5 @@
 <script>
+	// @ts-nocheck
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	export let fill;

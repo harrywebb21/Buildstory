@@ -2,7 +2,7 @@
 	import NavBtn from './NavBtn.svelte';
 </script>
 
-<div class="h-full pr-6 flex items-center">
+<div class="h-full pr-6 items-center hidden md:flex">
 	<div class="flex flex-col">
 		<NavBtn text="Home" />
 		<NavBtn text="Notifications" />

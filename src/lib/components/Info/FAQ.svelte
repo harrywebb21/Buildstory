@@ -3,7 +3,7 @@
 	import FaqItem from './FAQItem.svelte';
 </script>
 
-<div id="faq" class=" flex flex-col w-[560px] gap-12">
+<div id="faq" class=" flex flex-col items-center justify-center sm:w-2/5 gap-12">
 	<div class="heading-container flex flex-col gap-2">
 		<div class="title-container flex items-center gap-2">
 			<img src={faqIcon} alt="" />
@@ -11,7 +11,7 @@
 		</div>
 		<p class=" text-xl font-medium text-slate-400">Got questions? We’ve got answers</p>
 	</div>
-	<div class="content-container flex flex-col gap-8">
+	<div class="content-container w-full flex flex-col gap-8 items-center justify-center">
 		<FaqItem
 			icon="book"
 			title="Who is Buildstory for?"

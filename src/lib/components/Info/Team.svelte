@@ -5,7 +5,7 @@
 	import TeamMember from './TeamMember.svelte';
 </script>
 
-<div id="team" class="flex flex-col gap-12">
+<div id="team" class="flex flex-col gap-12 w-full">
 	<div class="heading-container flex flex-col items-center justify-center gap-2">
 		<img class=" w-8 h-8 p-2 rounded-lg border-2 border-slate-800" src={teamIcon} alt="" />
 		<h1 class=" font-bold text-5xl text-slate-50">Team</h1>
@@ -13,7 +13,7 @@
 			A misfit bunch of indie hackers from across the globe
 		</p>
 	</div>
-	<div class=" flex gap-8">
+	<div class=" flex gap-8 w-full flex-col sm:flex-row items-center justify-center">
 		<TeamMember
 			img="https://s3-alpha-sig.figma.com/img/c87a/a7e3/6f897d4052d25dd912ac9012442a2745?Expires=1691971200&Signature=Hzz7U6GyvVWYpduvnLTh0ELGb0ixPmCL5kwXAdEt-eDNYigB4NJeSITIhTjJ7KjfIm6Nl6Q3yfdcge1IM8szvVX6jiT21UmgYmoHJBp1~V1WNSFUCeoyrHA6fcdPfnVMsQ5byeAWfBxKhjq8PqKNPLs3dPy2HSWDZr5rkJ8gW0pQgxkzAr2YabaNyeBOAxgJ2ocWOM8cQHsxfQe8S77dTfWRy7r5Pk0BXOpfX-fBn3058EBhadbS0o5m8K8i9pOnXN8dNaIqaukKsp4GsmtHHhctLYb2dp35oKpAp7zwhopjtTiLHAqDWicLoLH36E9GCzQI409kRJ-yvQkCOdpv-A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
 			name="Noel"

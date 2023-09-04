@@ -1,14 +1,14 @@
 <script>
 	//@ts-nocheck
-	import CoverImg from '$lib/components/profile/small components/CoverImg.svelte';
-	import Avatar from '$lib/components/profile/small components/Avatar.svelte';
-	import Line from '$lib/components/profile/small components/Line.svelte';
-	import HLine from './small components/HLine.svelte';
-	import Crown from '../badges/Crown.svelte';
-	import Rocket from '../badges/Rocket.svelte';
-	import Star from '../badges/Star.svelte';
-	import MockProjects from './profile_sides/MockProjects.svelte';
-	import MockNav from './profile_sides/MockNav.svelte';
+	import CoverImg from '$lib/components/profile/CoverImg.svelte';
+	import Avatar from '$lib/components/profile/Avatar.svelte';
+	import Line from '$lib/components/lines/Line.svelte';
+
+	import Crown from '$lib/components/badges/Crown.svelte';
+	import Rocket from '$lib/components/badges/Rocket.svelte';
+	import Star from '$lib/components/badges/Star.svelte';
+	import MockProjects from '$lib/components/profile/profile_sides/MockProjects.svelte';
+	import MockNav from '$lib/components/profile/profile_sides/MockNav.svelte';
 	export let coverImg =
 		'https://s3-alpha-sig.figma.com/img/d591/3104/b315483a4512abb8ec7bb6d090f99098?Expires=1691366400&Signature=S8W1apOUzL-1EIoMuc4Tl6u4uFHdw9IQu5vceBOj1NM3DULjDC29NM0SX0OqNv0mrUNDrDOBCvVcloSOcjylUFh~iJ78cnxj0L4p8xYhuE-WhsQ745jzc7SrO0Su2uhQvnzxJPV6xO7m34ZctOAdZYIWLDTy0B3ElAQi~ejw2JkmzCAZ9pXt-z1NkRJPGnV5~FbKaU8JIESevKlGo0IdU0vDTNo09Er8BufqO3iTaj9rvMng7wW2UmlmXpfNsJ7IktrTUyNzUmy3OjleVlqr6fg0XmAeAWjlIFid5zwX5~si0aL7Il8M~WDJH4eTI36w-YTGC0YB49vP~N8E2Lk9FA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4';
 

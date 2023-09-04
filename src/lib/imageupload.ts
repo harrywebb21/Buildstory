@@ -1,60 +1,60 @@
 import { writable } from 'svelte/store';
 
-export const files = writable({ urls: [], formData: null });
+export function createImageUploader(cloudname: string) {
+	const fileUrl = writable<string>('');
+	const formData = writable<any>();
+	let data: any = null;
+	formData.subscribe((value) => {
+		data = value;
+	});
 
-let file: any;
+	function fileInput(node: Node) {
+		const input = document.createElement('input');
+		input.setAttribute('type', 'file');
+		input.setAttribute('accept', 'image/*');
+		input.setAttribute('type', 'file');
+		input.setAttribute('multiple', '');
+		input.setAttribute('hidden', '');
+		input.style.display = 'none';
 
-files.subscribe((value) => {
-	file = value;
-});
-
-const cloudname = 'dpjqff1dh';
-export const fileInput = (node: any) => {
-	const input = document.createElement('input');
-	input.setAttribute('type', 'file');
-	input.setAttribute('accept', 'image/*');
-	input.setAttribute('type', 'file');
-	input.setAttribute('multiple', '');
-	input.setAttribute('hidden', '');
-	input.style.display = 'none';
-
-	function openFileExplorer() {
-		input.click();
-	}
-
-	function getFiles(e: any) {
-		const inputFiles = e.target.files;
-		const formData = new FormData();
-		formData.append('file', inputFiles);
-		formData.append('upload_preset', 'Buildstory');
-		formData.append('cloud_name', cloudname);
-
-		console.log(inputFiles);
-
-		// files.set({ urls: inputFiles.files.map((file) => URL.createObjectURL(file)), formData });
-	}
-
-	node.addEventListener('click', openFileExplorer);
-	input.addEventListener('input', getFiles);
-
-	return {
-		destroy: () => {
-			node.removeEventListener('click', openFileExplorer);
-			input.removeEventListener('click', getFiles);
+		function openFileExplorer() {
+			input.click();
 		}
-	};
-};
 
-export const upload = async () => {
-	if (!file?.formData) return;
-	try {
-		const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudname}/image/upload`, {
-			method: 'post',
-			body: file.formData
-		});
+		function getFiles(e: any) {
+			const file = e.target.files;
+			const data = new FormData();
+			data.append('file', file);
+			data.append('upload_preset', 'Buildstory');
+			data.append('cloud_name', cloudname);
+			fileUrl.set(URL.createObjectURL(file));
+			formData.set(data);
+		}
 
-		return await response.json();
-	} catch {
-		throw new Error('server error: unable to upload img to cloudinary');
+		node.addEventListener('click', openFileExplorer);
+		input.addEventListener('input', getFiles);
+
+		return {
+			destroy: () => {
+				node.removeEventListener('click', openFileExplorer);
+				input.removeEventListener('click', getFiles);
+			}
+		};
 	}
-};
+
+	async function upload() {
+		if (!data) return;
+		try {
+			const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudname}/image/upload`, {
+				method: 'post',
+				body: data
+			});
+
+			return await response.json();
+		} catch {
+			throw new Error('server error: unable to upload img to cloudinary');
+		}
+	}
+
+	return { fileInput, upload, fileUrl };
+}

@@ -1,8 +1,8 @@
 <script>
 	// @ts-nocheck
-	import Nakedbtn from '../buttons/Nakedbtn.svelte';
-	import PuffyBtn from '../buttons/PuffyBtn.svelte';
-	import Logo from '../profile/small components/Logo.svelte';
+	import Nakedbtn from '$lib/components/buttons/Nakedbtn.svelte';
+	import PuffyBtn from '$lib/components/buttons/PuffyBtn.svelte';
+	import Logo from './Logo.svelte';
 </script>
 
 <div class=" h-12 w-full flex justify-center sm:justify-between px-8 mb-10">

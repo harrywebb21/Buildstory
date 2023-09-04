@@ -9,7 +9,7 @@
 	import right from '$lib/assets/Right Button.svg';
 </script>
 
-<button class="flex items-center gap-2" on:click {type} {text} {icon}>
+<button class="flex items-center gap-2 h-12" on:click {type} {text} {icon}>
 	{#if icon === 'back'}
 		<img src={back} alt="" />
 	{/if}

@@ -17,17 +17,20 @@
 <style>
 	.stars {
 		position: absolute;
+		display: hidden;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		opacity: 0.5;
+		opacity: 0;
 		animation: starsFalling 10s linear infinite;
 	}
 
-	.stars img {
-		animation: starsFlickering 1s linear infinite;
+	.stars:hover {
+		opacity: 1;
+		animation: starsFlickering 5s linear infinite;
 	}
+
 	.badge-border {
 		width: 36px;
 		height: 36px;
@@ -72,24 +75,17 @@
 		}
 	}
 
-	@keyframes starsFalling {
-		from {
-			transform: translateY(-100%);
-		}
-		to {
-			transform: translateY(0%);
-		}
-	}
-
 	@keyframes starsFlickering {
 		0% {
 			opacity: 0.5;
+			transform: translateY(-100%);
 		}
 		50% {
 			opacity: 0.8;
 		}
 		100% {
 			opacity: 0.5;
+			transform: translateY(0%);
 		}
 	}
 </style>

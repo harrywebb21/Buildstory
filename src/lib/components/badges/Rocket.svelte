@@ -3,11 +3,7 @@
 </script>
 
 <div class="badge-border px-2">
-	<img
-		class="icon"
-		src="https://s3-alpha-sig.figma.com/img/1872/fbad/094e0341fb3c155403ee4c52b0156b00?Expires=1691971200&Signature=NR6y-Ol7fkkOYdQm~63lnWKXWt7g4XtWEvQqRPg-py5yuWyDcH8ojEzSG85sm1aq7DCY3IJnERomMYhlFe8xJpQ7ZkW~3sy5ikFXAJveqSbbxRPHZOV5yMYgGfaQGaYBiGxOBS05meg5-SbCo1cptvQSI2m2GiF2yxXs6ixTaAxl0qG2Gzl3xMyBx-XWzelv3T5Vuzze613qhQnEdy3nMkcOTuL0NECYx-Khi0x3r1xvykskWujYl3covVRHoVFo7qgeNP2Ar6swNFijQ-bNtG9YF9sbvsK9nBDs21RMNdyuVo71UzO08KxJfVT49G7gZmRFcQVH7Ed8ogL5WQa3cw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-		alt="Rocket Badge"
-	/>
+	<img class="icon" src="rocket.png" alt="Rocket Badge" />
 	<div class="stars">
 		<img src={Stars} alt="stars" />
 	</div>

@@ -3,16 +3,9 @@
 
 <div class="badge-border px-2">
 	<div class="stars">
-		<img
-			src="https://s3-alpha-sig.figma.com/img/d406/0e2e/ea1654e21bba9a7178389a061aaf8eae?Expires=1691971200&Signature=oXmxx58VGwz~5H7y52TFiLea7HvM8hxnIkzX16AVfqHIM385i7St~JLuXqpZVHOoJqJiV6ErABcXGK6yo0reLAAYgg~MVapNVyeZMuJswdsMqTnJkWD06wlIMJCZFO23ZCJfWOdtRWTPRuLmwPA6NyXTxxeU71dXbq-bsd5MABJA9OaQc3MGDlNSBVVx6rL8A27okXTRtEQvtRL7vmQEvb9jFxw7aLQpzUc1sqbJNDLhsftYfz44N-UjudpShXLPLqvTLaQ5j~IsMN3Z4v5BpkkxRaBYQvwfSVOLRQil3u93E546QUQ4TyGDncM0HXgWo~TuIktfLh9B~o~Mk96Lcg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-			alt="stars"
-		/>
+		<img src="star.png" alt="stars" />
 	</div>
-	<img
-		class="icon"
-		src="https://s3-alpha-sig.figma.com/img/d406/0e2e/ea1654e21bba9a7178389a061aaf8eae?Expires=1691971200&Signature=oXmxx58VGwz~5H7y52TFiLea7HvM8hxnIkzX16AVfqHIM385i7St~JLuXqpZVHOoJqJiV6ErABcXGK6yo0reLAAYgg~MVapNVyeZMuJswdsMqTnJkWD06wlIMJCZFO23ZCJfWOdtRWTPRuLmwPA6NyXTxxeU71dXbq-bsd5MABJA9OaQc3MGDlNSBVVx6rL8A27okXTRtEQvtRL7vmQEvb9jFxw7aLQpzUc1sqbJNDLhsftYfz44N-UjudpShXLPLqvTLaQ5j~IsMN3Z4v5BpkkxRaBYQvwfSVOLRQil3u93E546QUQ4TyGDncM0HXgWo~TuIktfLh9B~o~Mk96Lcg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-		alt="Star Badge"
-	/>
+	<img class="icon" src="star.png" alt="Star Badge" />
 	<div class="glow-strip" />
 </div>
 

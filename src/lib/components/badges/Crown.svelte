@@ -1,8 +1,16 @@
-<script>
-	export let variant = 'default';
+<script lang="ts">
+	const colour = {
+		bronze: 'crown_bronze.png',
+		silver: 'crown_silver.png',
+		gold: 'crown_gold.png'
+	};
+
+	export let variant = 'bronze';
+
+	console.log(`${colour[variant]}`);
 </script>
 
-{#if variant === 'bronze'}
+<!-- {#if variant === 'bronze'}
 	<div class="crown-border px-2">
 		<img
 			class="crown-icon"
@@ -13,7 +21,6 @@
 	</div>
 {:else if variant === 'silver'}
 	<div class="crown-border px-2">
-		<!-- <div class="img-color" bind:this={test} /> -->
 		<img
 			class="crown-icon"
 			src="https://s3-alpha-sig.figma.com/img/296d/3dd9/4645a6079cd81d50aaadb2849eb990e5?Expires=1691971200&Signature=EoqjGT~3ME8Vo2dtsbRCi5vqBPYSl0m5jY2YoxrIBUiSAvpON0iB2bgxXJV8xA5ZEcdRY0aWOLkUV435bC~zallVA4dzrE8XZ1b2toNqp6DAnZNUAWGrInouOsKFvKaJMISLVYUOkI-9TiF6eZ3UJXavgkEs7OoTCyooOPGchfCt4Pzt-Y7LvVCQmHjAX6Dq2DKhFhr~YkspjFILmaBeLa8dybI8HTuZ4l9-EMq34rd4XeF77DelkuoKnAz8QH39GPKpPAb1f0sT911il1qXLFt47h6iart7kDZYWKoO3GaZzSbuPwxZm5r7OVty2udaMBy6wuriZtj1dg7bGyZ6iQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
@@ -31,7 +38,12 @@
 
 		<div class="glow-strip" />
 	</div>
-{/if}
+{/if} -->
+<div class="crown-border px-2">
+	<img class="crown-icon" src={`${colour[variant]}`} alt="" />
+
+	<div class="glow-strip" />
+</div>
 
 <style>
 	.crown-border {
